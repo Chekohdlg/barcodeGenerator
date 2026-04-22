@@ -1,4 +1,6 @@
 import bwipjs from 'bwip-js';
+// bwip-js v4 exposes toSVG at runtime but @types/bwip-js hasn't caught up
+const bwip = bwipjs as unknown as { toSVG: (opts: object) => string };
 import type { BarcodeConfig, BarcodeType } from '../types';
 
 const BWIP_TYPES: Record<BarcodeType, string> = {
@@ -14,7 +16,7 @@ export function generateBarcodeSVG(config: BarcodeConfig): string {
   const { type, value, width, height, color, backgroundColor, showText } = config;
   if (!value.trim()) return '';
   try {
-    return bwipjs.toSVG({
+    return bwip.toSVG({
       bcid: BWIP_TYPES[type],
       text: value,
       scale: 3,

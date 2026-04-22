@@ -16,7 +16,7 @@ interface Props {
 
 const labelClass = 'block text-xs font-medium text-zinc-500 mb-1.5 uppercase tracking-wide';
 const inputClass =
-  'w-full bg-surface-700 border border-surface-600 text-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent placeholder-zinc-600';
+  'w-full bg-surface-700 border border-surface-600 text-foreground rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent placeholder-zinc-600';
 
 export function BarcodeControls({ config, onChange }: Props) {
   return (
@@ -88,7 +88,7 @@ export function BarcodeControls({ config, onChange }: Props) {
               type="text"
               value={config.color}
               onChange={(e) => onChange({ color: e.target.value })}
-              className="flex-1 bg-surface-700 border border-surface-600 text-white rounded-lg px-2 py-2 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-brand-500"
+              className="flex-1 bg-surface-700 border border-surface-600 text-foreground rounded-lg px-2 py-2 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-brand-500"
             />
           </div>
         </div>
@@ -105,7 +105,7 @@ export function BarcodeControls({ config, onChange }: Props) {
               type="text"
               value={config.backgroundColor}
               onChange={(e) => onChange({ backgroundColor: e.target.value })}
-              className="flex-1 bg-surface-700 border border-surface-600 text-white rounded-lg px-2 py-2 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-brand-500"
+              className="flex-1 bg-surface-700 border border-surface-600 text-foreground rounded-lg px-2 py-2 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-brand-500"
             />
           </div>
         </div>

@@ -7,6 +7,7 @@ interface AppState {
   barcodeConfig: BarcodeConfig;
   setActivePage: (page: ActivePage) => void;
   toggleTheme: () => void;
+  setIsDark: (value: boolean) => void;
   setBarcodeConfig: (partial: Partial<BarcodeConfig>) => void;
 }
 
@@ -26,6 +27,7 @@ export const useAppStore = create<AppState>((set) => ({
   barcodeConfig: defaultConfig,
   setActivePage: (page) => set({ activePage: page }),
   toggleTheme: () => set((s) => ({ isDark: !s.isDark })),
+  setIsDark: (value) => set({ isDark: value }),
   setBarcodeConfig: (partial) =>
     set((s) => ({ barcodeConfig: { ...s.barcodeConfig, ...partial } })),
 }));

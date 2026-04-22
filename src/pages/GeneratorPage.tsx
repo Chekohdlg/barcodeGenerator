@@ -11,7 +11,7 @@ export function GeneratorPage() {
       {/* Left controls panel */}
       <div className="w-72 bg-surface-800 border-r border-surface-700 flex flex-col overflow-y-auto flex-shrink-0">
         <div className="p-5 border-b border-surface-700">
-          <h2 className="text-white font-semibold">Generador Individual</h2>
+          <h2 className="text-foreground font-semibold">Generador Individual</h2>
           <p className="text-zinc-600 text-xs mt-0.5">Vista previa en tiempo real</p>
         </div>
         <div className="p-5 flex-1">

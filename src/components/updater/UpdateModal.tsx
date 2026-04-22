@@ -24,7 +24,7 @@ export function UpdateModal({ info, downloading, progress, onUpdate, onDismiss }
             </svg>
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="text-white font-semibold">Nueva versión disponible</h3>
+            <h3 className="text-foreground font-semibold">Nueva versión disponible</h3>
             <p className="text-zinc-500 text-sm mt-0.5">
               {info.currentVersion} → <span className="text-brand-400 font-medium">{info.version}</span>
             </p>
@@ -65,7 +65,7 @@ export function UpdateModal({ info, downloading, progress, onUpdate, onDismiss }
           <button
             onClick={onUpdate}
             disabled={downloading}
-            className="flex-1 bg-brand-500 hover:bg-brand-600 disabled:opacity-70 text-white font-medium py-2 rounded-lg text-sm transition-colors"
+            className="flex-1 bg-brand-500 hover:bg-brand-600 disabled:opacity-70 text-foreground font-medium py-2 rounded-lg text-sm transition-colors"
           >
             {downloading ? 'Instalando…' : 'Actualizar ahora'}
           </button>

@@ -64,7 +64,7 @@ export function ExportButtons({ config }: Props) {
   const btnBase =
     'flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors w-full';
   const btnActive =
-    'bg-surface-700 hover:bg-surface-600 text-zinc-300 hover:text-white border border-surface-600';
+    'bg-surface-700 hover:bg-surface-600 text-zinc-300 hover:text-foreground border border-surface-600';
   const btnDisabled = 'bg-surface-800 text-zinc-700 cursor-not-allowed border border-surface-700';
 
   return (

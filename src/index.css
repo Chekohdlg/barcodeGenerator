@@ -2,6 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --surface-900: #ffffff;
+  --surface-800: #f4f4f5;
+  --surface-700: #e4e4e7;
+  --surface-600: #d4d4d8;
+  --brand-400: #818cf8;
+  --brand-500: #6366f1;
+  --brand-600: #4f46e5;
+  --foreground: #18181b;
+}
+
+.dark {
+  --surface-900: #0f0f11;
+  --surface-800: #18181b;
+  --surface-700: #27272a;
+  --surface-600: #3f3f46;
+  --brand-400: #818cf8;
+  --brand-500: #6366f1;
+  --brand-600: #4f46e5;
+  --foreground: #ffffff;
+}
+
 * {
   -webkit-user-select: none;
   user-select: none;
@@ -39,7 +61,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3f3f46;
+  background: var(--surface-600);
   border-radius: 3px;
 }
 

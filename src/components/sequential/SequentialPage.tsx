@@ -60,13 +60,13 @@ export function SequentialPage() {
   }
 
   const inputClass =
-    'w-full bg-surface-700 border border-surface-600 text-white rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500';
+    'w-full bg-surface-700 border border-surface-600 text-foreground rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500';
   const labelClass = 'block text-xs font-medium text-zinc-500 mb-1.5 uppercase tracking-wide';
 
   return (
     <div className="h-full flex flex-col p-6 gap-5 overflow-y-auto">
       <div>
-        <h2 className="text-white font-semibold text-lg">Numeración Secuencial</h2>
+        <h2 className="text-foreground font-semibold text-lg">Numeración Secuencial</h2>
         <p className="text-zinc-500 text-sm mt-1">
           Genera automáticamente una serie de códigos numerados
         </p>
@@ -125,7 +125,7 @@ export function SequentialPage() {
               key={i}
               className="flex-1 bg-surface-700 rounded-lg px-3 py-2.5 text-center border border-surface-600"
             >
-              <p className="text-white text-sm font-mono truncate">{v || <span className="text-zinc-600">—</span>}</p>
+              <p className="text-foreground text-sm font-mono truncate">{v || <span className="text-zinc-600">—</span>}</p>
             </div>
           ))}
         </div>
@@ -156,7 +156,7 @@ export function SequentialPage() {
       <button
         onClick={exportZip}
         disabled={count < 1 || isGenerating}
-        className="self-start flex items-center gap-2 bg-brand-500 hover:bg-brand-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium px-5 py-2.5 rounded-lg text-sm transition-colors"
+        className="self-start flex items-center gap-2 bg-brand-500 hover:bg-brand-600 disabled:opacity-50 disabled:cursor-not-allowed text-foreground font-medium px-5 py-2.5 rounded-lg text-sm transition-colors"
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path

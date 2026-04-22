@@ -8,7 +8,7 @@ let storeInstance: Store | null = null;
 
 async function getStore(): Promise<Store> {
   if (!storeInstance) {
-    storeInstance = await load('session.json', { autoSave: true });
+    storeInstance = await load('session.json', { defaults: {} });
   }
   return storeInstance;
 }

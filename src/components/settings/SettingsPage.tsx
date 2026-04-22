@@ -1,5 +1,7 @@
+import { useState, useEffect } from 'react';
+import { getVersion } from '@tauri-apps/api/app';
 import type { Session } from '@supabase/supabase-js';
-import { useAppStore } from '../../store/appStore';
+import { useTheme } from '../../hooks/useTheme';
 
 interface Props {
   session: Session;
@@ -7,12 +9,17 @@ interface Props {
 }
 
 export function SettingsPage({ session, onLogout }: Props) {
-  const { isDark, toggleTheme } = useAppStore();
+  const { isDark, toggleTheme } = useTheme();
+  const [version, setVersion] = useState('...');
+
+  useEffect(() => {
+    getVersion().then(setVersion).catch(() => setVersion('1.0.0'));
+  }, []);
 
   return (
     <div className="h-full p-6 overflow-y-auto">
       <div className="mb-6">
-        <h2 className="text-white font-semibold text-lg">Configuración</h2>
+        <h2 className="text-foreground font-semibold text-lg">Configuración</h2>
         <p className="text-zinc-500 text-sm mt-1">Administra tu cuenta y preferencias</p>
       </div>
 
@@ -23,7 +30,7 @@ export function SettingsPage({ session, onLogout }: Props) {
           <div className="flex items-center justify-between gap-4">
             <div className="min-w-0">
               <p className="text-xs text-zinc-500">Usuario autenticado</p>
-              <p className="text-sm font-medium text-white mt-0.5 truncate">{session.user.email}</p>
+              <p className="text-sm font-medium text-foreground mt-0.5 truncate">{session.user.email}</p>
             </div>
             <button
               onClick={onLogout}
@@ -47,7 +54,7 @@ export function SettingsPage({ session, onLogout }: Props) {
           <p className="text-xs font-medium text-zinc-500 uppercase tracking-wide mb-4">Apariencia</p>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-sm font-medium text-white">Tema</p>
+              <p className="text-sm font-medium text-foreground">Tema</p>
               <p className="text-xs text-zinc-500 mt-0.5">{isDark ? 'Modo oscuro activo' : 'Modo claro activo'}</p>
             </div>
             <button
@@ -71,11 +78,11 @@ export function SettingsPage({ session, onLogout }: Props) {
           <div className="space-y-2">
             <div className="flex justify-between text-sm">
               <span className="text-zinc-500">Aplicación</span>
-              <span className="text-white font-medium">BarcodeGenerator</span>
+              <span className="text-foreground font-medium">BarcodeGenerator</span>
             </div>
             <div className="flex justify-between text-sm">
               <span className="text-zinc-500">Versión</span>
-              <span className="text-white font-medium">1.0.0</span>
+              <span className="text-foreground font-medium">{version}</span>
             </div>
           </div>
         </div>

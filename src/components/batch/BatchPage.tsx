@@ -70,7 +70,7 @@ export function BatchPage() {
   return (
     <div className="h-full flex flex-col p-6 gap-5 overflow-y-auto">
       <div>
-        <h2 className="text-white font-semibold text-lg">Modo Lote</h2>
+        <h2 className="text-foreground font-semibold text-lg">Modo Lote</h2>
         <p className="text-zinc-500 text-sm mt-1">
           Importa un CSV y genera un código de barras por cada fila
         </p>
@@ -160,7 +160,7 @@ export function BatchPage() {
       <button
         onClick={generateBatch}
         disabled={!values.length || isGenerating}
-        className="self-start flex items-center gap-2 bg-brand-500 hover:bg-brand-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-medium px-5 py-2.5 rounded-lg text-sm transition-colors"
+        className="self-start flex items-center gap-2 bg-brand-500 hover:bg-brand-600 disabled:opacity-50 disabled:cursor-not-allowed text-foreground font-medium px-5 py-2.5 rounded-lg text-sm transition-colors"
       >
         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path
