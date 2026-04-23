@@ -1,6 +1,6 @@
 [package]
 name = "barcode-generator"
-version = "1.0.0"
+version = "1.0.4"
 description = "BarcodeGenerator Desktop App"
 authors = ["Sergio"]
 edition = "2021"

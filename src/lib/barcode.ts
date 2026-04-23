@@ -12,25 +12,40 @@ const BWIP_TYPES: Record<BarcodeType, string> = {
   code39: 'code39',
 };
 
+const BWIP_OPTS = (config: BarcodeConfig) => ({
+  bcid: BWIP_TYPES[config.type],
+  text: config.value,
+  scale: 4,
+  includetext: config.showText,
+  textxalign: 'center' as const,
+  textcolor: config.color.replace('#', ''),
+  barcolor: config.color.replace('#', ''),
+  backgroundcolor: config.backgroundColor.replace('#', ''),
+});
+
 export function generateBarcodeSVG(config: BarcodeConfig): string {
-  const { type, value, width, height, color, backgroundColor, showText } = config;
-  if (!value.trim()) return '';
+  if (!config.value.trim()) return '';
   try {
-    return bwip.toSVG({
-      bcid: BWIP_TYPES[type],
-      text: value,
-      scale: 3,
-      width: Math.max(10, Math.floor(width / 10)),
-      height: Math.max(10, Math.floor(height / 10)),
-      includetext: showText,
-      textxalign: 'center',
-      textcolor: color.replace('#', ''),
-      barcolor: color.replace('#', ''),
-      backgroundcolor: backgroundColor.replace('#', ''),
-    });
+    return bwip.toSVG(BWIP_OPTS(config));
   } catch {
     return '';
   }
+}
+
+export async function canvasToPngBlob(config: BarcodeConfig): Promise<Blob> {
+  return new Promise((resolve, reject) => {
+    const canvas = document.createElement('canvas');
+    try {
+      bwipjs.toCanvas(canvas, BWIP_OPTS(config));
+    } catch (e) {
+      reject(e);
+      return;
+    }
+    canvas.toBlob((b) => {
+      if (b) resolve(b);
+      else reject(new Error('No se pudo convertir a PNG'));
+    }, 'image/png');
+  });
 }
 
 export async function svgToPngBlob(svg: string, width: number, height: number): Promise<Blob> {

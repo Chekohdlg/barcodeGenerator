@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getVersion } from '@tauri-apps/api/app';
+import { version as pkgVersion } from '../../../package.json';
 import type { Session } from '@supabase/supabase-js';
 import { useTheme } from '../../hooks/useTheme';
 
@@ -13,7 +14,7 @@ export function SettingsPage({ session, onLogout }: Props) {
   const [version, setVersion] = useState('...');
 
   useEffect(() => {
-    getVersion().then(setVersion).catch(() => setVersion('1.0.0'));
+    getVersion().then(setVersion).catch(() => setVersion(pkgVersion));
   }, []);
 
   return (

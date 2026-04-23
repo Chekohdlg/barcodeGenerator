@@ -39,6 +39,13 @@ jobs:
       - name: Install frontend dependencies
         run: npm ci
 
+      - name: Set version from tag
+        shell: bash
+        run: |
+          VERSION="${GITHUB_REF_NAME#v}"
+          npm version "$VERSION" --no-git-tag-version
+          sed -i 's/^version = .*/version = "'"$VERSION"'"/' src-tauri/Cargo.toml
+
       - name: Build and release
         uses: tauri-apps/tauri-action@v0
         env:

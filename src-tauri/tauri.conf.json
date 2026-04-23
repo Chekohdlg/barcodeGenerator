@@ -1,7 +1,6 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
   "productName": "BarcodeGenerator",
-  "version": "1.0.0",
   "identifier": "com.barcodegenerator.app",
   "build": {
     "frontendDist": "../dist",
