@@ -16,7 +16,12 @@ src-tauri/target/
 # Editor
 .vscode/
 .idea/
+.obsidian/
 *.swp
+
+# Generated
+graphify-out/
+src/data/
 
 # OS
 .DS_Store
