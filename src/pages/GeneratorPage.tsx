@@ -2,9 +2,11 @@ import { BarcodeControls } from '../components/barcode/BarcodeControls';
 import { BarcodePreview } from '../components/barcode/BarcodePreview';
 import { ExportButtons } from '../components/barcode/ExportButtons';
 import { useAppStore } from '../store/appStore';
+import { useConfig } from '../hooks/useConfig';
 
 export function GeneratorPage() {
-  const { barcodeConfig, setBarcodeConfig } = useAppStore();
+  const { barcodeConfig } = useAppStore();
+  const { setBarcodeConfigAndSave } = useConfig();
 
   return (
     <div className="flex h-full">
@@ -15,7 +17,7 @@ export function GeneratorPage() {
           <p className="text-zinc-600 text-xs mt-0.5">Vista previa en tiempo real</p>
         </div>
         <div className="p-5 flex-1">
-          <BarcodeControls config={barcodeConfig} onChange={setBarcodeConfig} />
+          <BarcodeControls config={barcodeConfig} onChange={setBarcodeConfigAndSave} />
         </div>
         <div className="p-5 border-t border-surface-700">
           <ExportButtons config={barcodeConfig} />
